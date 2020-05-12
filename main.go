@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/crawler/engine"
 	"github.com/crawler/lianjia/parser"
+	"github.com/crawler/scheduler"
 )
 
 func main() {
@@ -10,7 +11,11 @@ func main() {
 	// if err != nil {
 	// 	panic(err)
 	// }
-	engine.Run(engine.Request{
+	e := engine.ConcurrentEngine{
+		Scheduler:   &scheduler.SimpleScheduler{},
+		WorkerCount: 100,
+	}
+	e.Run(engine.Request{
 		Url:        "https://sh.lianjia.com/ershoufang/",
 		ParserFunc: parser.ParseAreaList,
 	})

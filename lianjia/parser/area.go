@@ -7,8 +7,9 @@ import (
 )
 
 // <a href="/ershoufang/anshan/" >鞍山</a>
-// const areaRe = `<a href="(/ershoufang/[a-z]+/)" >([^<]+)</a>`
-const areaRe = `<a href="(/ershoufang/[a-z]+/)" >(鞍山)</a>`
+const areaRe = `<a href="(/ershoufang/[a-z]+/)" >([^<]+)</a>`
+
+// const areaRe = `<a href="(/ershoufang/[a-z]+/)" >(鞍山)</a>`
 
 func ParseArea(contents []byte) engine.ParseResult {
 	compile := regexp.MustCompile(areaRe)
