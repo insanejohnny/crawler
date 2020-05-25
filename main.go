@@ -12,7 +12,7 @@ func main() {
 	// 	panic(err)
 	// }
 	e := engine.ConcurrentEngine{
-		Scheduler:   &scheduler.SimpleScheduler{},
+		Scheduler:   &scheduler.QueuedScheduler{},
 		WorkerCount: 100,
 	}
 	e.Run(engine.Request{
