@@ -17,7 +17,7 @@ func ParseBlock(contents []byte) engine.ParseResult {
 	result := engine.ParseResult{}
 	for _, m := range matches {
 		title := string(m[2])
-		result.Items = append(result.Items, "title: "+title)
+		//result.Items = append(result.Items, "title: "+title)
 		result.Requests = append(result.Requests, engine.Request{
 			Url: string(m[1]),
 			ParserFunc: func(c []byte) engine.ParseResult {
